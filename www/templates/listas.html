@@ -1,0 +1,39 @@
+<ion-view view-title="Lista de Item">
+    <ion-content class="has-header">
+     
+     <div  class="row item" >
+          <div class="col col-40 col-center">
+ 
+                 <button class="button button-clear button-positive"
+     ng-click="showPopup()">Nova Lista
+    </button>
+   </div>
+</div>
+        </div>
+         <ion-list ng-repeat="item in listas track by $index">
+                <div ng-hide="item.editMode" class="row item">
+                    <div  class="col col-60 col-center" >
+                        <strong>{{item.nome}}</strong><i>({{item.sublista.length}})</i>
+                  </div>
+                    <div class="col col-20 col-center">
+                        <a class="button icon ion-edit" ng-click="editar(item);"></a>
+                    </div>
+                    <div class="col col-20 col-center">
+                        <a  class="button  icon ion-arrow-right-c" ng-href="#/app/lista_add/{{item.id}}"></a>
+                    </div>
+         
+                    </div>
+        <div ng-hide="!item.editMode" class="row item">
+                <div  class="col col-60 col-center">
+                    <input type="text" ng-model="item.nome" />
+                    </div>
+                          <div class="col col-20 col-center">
+                        <a  class="button  icon ion-checkmark"
+                        ng-click="salvar(item)"></a>
+                    </div>
+                      <div class="col col-20 col-center">
+                        <a class="button icon ion-trash-a" ng-click="remover(item)"></a>
+                    </div>
+            </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,45 @@
+   <ion-view view-title="Lista - {{nomeLista}}">     
+        <ion-content class="has-header">
+            <div class="list">
+                <div class="item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="text" placeholder="Nome do item" ng-model="item.nome">
+                    </label>
+                    <a class="button button-icon icon ion-plus-circled" ng-disabled="!item.nome" ng-click="adicionar(item)"></a>
+                </div>
+            </div>
+            <strong>Total de itens - {{sublista.length}}</strong>
+            <ion-list ng-repeat="item in sublista track by $index" ng-hide="item.feito && !mostrar">
+                <div class="row item">
+                    <div class="col col-15 col-center">
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="item.feito" />
+                        </label>
+                    </div>
+                    <div class="col col-75 col-center">
+
+                        <strike ng-if="item.feito">{{item.nome}} </strike>
+                        <strong ng-show="!item.feito"> {{item.nome}}</strong>
+                    </div>
+                    <div class="col col-10 col-center">
+                        <a class="button button-icon icon ion-trash-a" ng-click="remover(item)"></a>
+                    </div>
+                </div>
+            </ion-list>
+        </ion-content>
+        <ion-footer-bar class="bar-positive">
+            <div class="row">
+                <div class="col col-80 col-center">
+                    <label>Mostrar itens Marcados</label>
+                </div>
+                <div class="col col-20 col-center">
+                    <label class="toggle">
+                        <input type="checkbox" ng-model="mostrar">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </ion-footer-bar>
+</ion-view>
