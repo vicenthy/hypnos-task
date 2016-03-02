@@ -1,9 +1,9 @@
 /* global angular */
 angular.module('starter').factory("listaAPI", function(){
-     var getListas  = angular.fromJson(window.localStorage['listas'] || []);
+     var getListas  = angular.fromJson(localStorage.getItem('listas') || []);
    
  function persist(){
-    window.localStorage['listas'] = angular.toJson(getListas);
+    localStorage.setItem('listas', angular.toJson(getListas));
   }
 
 
@@ -41,7 +41,6 @@ for (var i = 0; i < getListas.length; ++i ){
   
   }
 },
-
 
    remove: function(id){
       for (var i = 0; i < getListas.length; ++i ){

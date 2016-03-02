@@ -9,6 +9,7 @@ $scope.sublista = listaAPI.get($stateParams.id).sublista;
         var i = $scope.sublista.indexOf(item);
         if (i != -1) {
             $scope.sublista.splice(i, 1);
+            listaAPI.update( listaAPI.get($stateParams.id) );
         }
 
     }
@@ -17,6 +18,7 @@ $scope.sublista = listaAPI.get($stateParams.id).sublista;
         if (item.nome != null) {
             $scope.sublista.unshift(angular.copy(item));
             delete item.nome;
+            listaAPI.update( listaAPI.get($stateParams.id) );
       
         }
 
