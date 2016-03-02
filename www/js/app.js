@@ -7,7 +7,6 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-var db = null;
 var app = angular.module('starter', ['ionic',
                                     'starter',
                                     'ngCordova',
@@ -30,6 +29,7 @@ app.run(function ($ionicPlatform, $cordovaSQLite) {
             StatusBar.styleDefault();
         }
         
+        /* exemplo uso SQLite
         if(window.cordova) {
       // App syntax
       db = $cordovaSQLite.openDB("myapp.db");
@@ -39,14 +39,7 @@ app.run(function ($ionicPlatform, $cordovaSQLite) {
       // Ionic serve syntax
       db = window.openDatabase("myapp.db", "1.0", "My app", -1);
         console.log('ionic serve')
-    }
-        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS task (id integer primary key, usuario varchar(255),login varchar(24), senha varchar(20), lista text(65555) )");
-        $cordovaSQLite.execute(db, "desc task", []).then(function (params) {
-            console.log(params)
-        });
-     
-        console.log('query ok!')
-        
+    }     */
     
     });
 })

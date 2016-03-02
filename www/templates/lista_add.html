@@ -13,11 +13,10 @@
                 <div class="row item">
                     <div class="col col-15 col-center">
                         <label class="checkbox">
-                            <input type="checkbox" ng-model="item.feito" />
+                            <input type="checkbox" ng-model="item.feito" ng-change="salvarItem(item)" />
                         </label>
                     </div>
                     <div class="col col-75 col-center">
-
                         <strike ng-if="item.feito">{{item.nome}} </strike>
                         <strong ng-show="!item.feito"> {{item.nome}}</strong>
                     </div>
@@ -34,7 +33,7 @@
                 </div>
                 <div class="col col-20 col-center">
                     <label class="toggle">
-                        <input type="checkbox" ng-model="mostrar">
+                        <input type="checkbox" ng-model="mostrar" ng-change="salvaMostrar()">
                         <div class="track">
                             <div class="handle"></div>
                         </div>
